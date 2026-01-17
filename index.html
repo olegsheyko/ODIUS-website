@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODIUS — Студия разработки видеоигр | Game Development Studio</title>
+    <meta name="description" content="ODIUS — российская ИТ-студия разработки видеоигр на Unreal Engine 5. Санкт-Петербург.">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background: #0a0a0a; }
+        .gradient-text { background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
+        .red-glow { box-shadow: 0 0 40px rgba(220, 38, 38, 0.3); }
+        .screenshot-card:hover { transform: scale(1.02); }
+        .screenshot-card { transition: transform 0.3s ease; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 4px; }
+    </style>
+</head>
+<body class="text-gray-100 antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <!-- Top bar with requisites -->
+            <div class="hidden lg:flex justify-between items-center py-2 text-xs text-gray-400 border-b border-white/5">
+                <div class="flex items-center gap-4 flex-wrap">
+                    <span>ООО «ODIUS»</span>
+                    <span>ИНН: 1234567890</span>
+                    <span>ОГРН: 1234567890123</span>
+                    <span>г. Санкт-Петербург, ул. Примерная, д.1</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="tel:+78121234567" class="hover:text-red-500 transition">+7 (812) 123-45-67</a>
+                    <a href="mailto:info@odius.ru" class="hover:text-red-500 transition">info@odius.ru</a>
+                </div>
+            </div>
+            
+            <!-- Main nav -->
+            <nav class="flex justify-between items-center py-4">
+                <a href="#home" class="text-2xl font-bold gradient-text tracking-tight">ODIUS</a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-sm hover:text-red-500 transition" data-ru="Главная" data-en="Home">Главная</a>
+                    <a href="#about" class="nav-link text-sm hover:text-red-500 transition" data-ru="О нас" data-en="About">О нас</a>
+                    <a href="#project" class="nav-link text-sm hover:text-red-500 transition" data-ru="Проект" data-en="Project">Проект</a>
+                    <a href="#contacts" class="nav-link text-sm hover:text-red-500 transition" data-ru="Контакты" data-en="Contacts">Контакты</a>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <!-- Language Switcher -->
+                    <div class="flex items-center gap-1 text-sm">
+                        <button id="lang-ru" class="px-2 py-1 rounded bg-red-600 text-white font-medium transition">RU</button>
+                        <button id="lang-en" class="px-2 py-1 rounded text-gray-400 hover:text-white transition">EN</button>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col gap-3">
+                    <a href="#home" class="nav-link text-sm py-2" data-ru="Главная" data-en="Home">Главная</a>
+                    <a href="#about" class="nav-link text-sm py-2" data-ru="О нас" data-en="About">О нас</a>
+                    <a href="#project" class="nav-link text-sm py-2" data-ru="Проект" data-en="Project">Проект</a>
+                    <a href="#contacts" class="nav-link text-sm py-2" data-ru="Контакты" data-en="Contacts">Контакты</a>
+                    <div class="pt-3 border-t border-white/10 text-xs text-gray-400 space-y-1">
+                        <p>ООО «ODIUS» | ИНН: 1234567890</p>
+                        <p>+7 (812) 123-45-67 | info@odius.ru</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-32 pb-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-red-900/10 via-transparent to-transparent"></div>
+        <div class="absolute top-1/4 right-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-gray-400 mb-6">
+                        <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                        <span data-ru="Санкт-Петербург, Россия" data-en="Saint Petersburg, Russia">Санкт-Петербург, Россия</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        <span class="gradient-text">ODIUS</span><br>
+                        <span class="text-white" data-ru="Студия разработки видеоигр" data-en="Game Development Studio">Студия разработки видеоигр</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-400 mb-8" data-ru="Создаём уникальные инди-игры на Unreal Engine 5 с использованием C++ и Blueprint" data-en="Creating unique indie games on Unreal Engine 5 using C++ and Blueprint">
+                        Создаём уникальные инди-игры на Unreal Engine 5 с использованием C++ и Blueprint
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#project" class="px-8 py-4 bg-red-600 hover:bg-red-700 rounded-lg font-medium transition red-glow" data-ru="Смотреть проект" data-en="View Project">
+                            Смотреть проект
+                        </a>
+                        <a href="https://store.steampowered.com/app/4039900/" target="_blank" class="px-8 py-4 glass hover:bg-white/10 rounded-lg font-medium transition flex items-center gap-2">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            Steam
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-red-600/20 to-purple-600/20 rounded-2xl blur-2xl"></div>
+                    <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4039900/header.jpg" 
+                         alt="ZOMBUTCHER Game Art" 
+                         class="relative rounded-2xl shadow-2xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4" data-ru="О компании" data-en="About Us">О компании</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto rounded"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-red-500" data-ru="Кто мы" data-en="Who We Are">Кто мы</h3>
+                        <p class="text-gray-400 leading-relaxed" data-ru="Российская ИТ-компания из Санкт-Петербурга. Специализируемся на разработке инди-игр в жанрах job-simulator и stealth-action. 100% выручки — от разработки и продаж видеоигр." data-en="Russian IT company from Saint Petersburg. We specialize in developing indie games in job-simulator and stealth-action genres. 100% revenue from game development and sales.">
+                            Российская ИТ-компания из Санкт-Петербурга. Специализируемся на разработке инди-игр в жанрах job-simulator и stealth-action. 100% выручки — от разработки и продаж видеоигр.
+                        </p>
+                    </div>
+                    
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-red-500" data-ru="Команда" data-en="Team">Команда</h3>
+                        <p class="text-gray-400 leading-relaxed" data-ru="Lead-разработчик с опытом 6+ лет в Unreal Engine 5 и команда junior-специалистов. Используем C++, Blueprint, современные подходы к геймдизайну." data-en="Lead developer with 6+ years of Unreal Engine 5 experience and a team of junior specialists. We use C++, Blueprint, and modern game design approaches.">
+                            Lead-разработчик с опытом 6+ лет в Unreal Engine 5 и команда junior-специалистов. Используем C++, Blueprint, современные подходы к геймдизайну.
+                        </p>
+                    </div>
+                    
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-red-500" data-ru="Клиенты и партнёры" data-en="Clients & Partners">Клиенты и партнёры</h3>
+                        <p class="text-gray-400 leading-relaxed" data-ru="Сотрудничаем с издателями из США, публикуемся на платформе Steam. Ориентированы на глобальный рынок видеоигр." data-en="We collaborate with US publishers and publish on Steam platform. Focused on the global video game market.">
+                            Сотрудничаем с издателями из США, публикуемся на платформе Steam. Ориентированы на глобальный рынок видеоигр.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="glass rounded-2xl p-8">
+                        <div class="grid grid-cols-2 gap-6 text-center">
+                            <div class="p-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">6+</div>
+                                <div class="text-gray-400 text-sm" data-ru="лет опыта в UE5" data-en="years UE5 experience">лет опыта в UE5</div>
+                            </div>
+                            <div class="p-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">100%</div>
+                                <div class="text-gray-400 text-sm" data-ru="выручка от игр" data-en="revenue from games">выручка от игр</div>
+                            </div>
+                            <div class="p-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">C++</div>
+                                <div class="text-gray-400 text-sm" data-ru="основной стек" data-en="main stack">основной стек</div>
+                            </div>
+                            <div class="p-4">
+                                <div class="text-4xl font-bold gradient-text mb-2">2026</div>
+                                <div class="text-gray-400 text-sm" data-ru="релиз игры" data-en="game release">релиз игры</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 flex justify-center gap-6">
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/UE_Logo_Black_Centered.svg/1200px-UE_Logo_Black_Centered.svg.png" alt="Unreal Engine" class="w-8 h-8 invert opacity-60">
+                                <span class="text-sm">Unreal Engine 5</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <svg class="w-8 h-8 opacity-60" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6a1 1 0 0 0-1 1v5a1 1 0 0 0 .29.71l3 3a1 1 0 0 0 1.42-1.42L13 11.59V7a1 1 0 0 0-1-1z"/></svg>
+                                <span class="text-sm">Steam</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="project" class="py-24 relative bg-gradient-to-b from-transparent via-red-900/5 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 rounded-full glass text-red-500 text-sm mb-4" data-ru="Наш флагманский проект" data-en="Our Flagship Project">Наш флагманский проект</span>
+                <h2 class="text-3xl sm:text-5xl font-bold mb-4">ZOMBUTCHER</h2>
+                <p class="text-xl text-gray-400" data-ru="Monster Business Simulator" data-en="Monster Business Simulator">Monster Business Simulator</p>
+            </div>
+            
+            <!-- Game Info -->
+            <div class="glass rounded-2xl p-8 mb-12">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4" data-ru="О проекте" data-en="About the Project">О проекте</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6" data-ru="Уникальный симулятор мясного бизнеса с элементами стелс-экшена. Управляйте мясной лавкой в мире, населённом зомби. Разрабатывается на Unreal Engine 5 с использованием C++." data-en="A unique meat business simulator with stealth-action elements. Run a butcher shop in a zombie-infested world. Developed on Unreal Engine 5 using C++.">
+                            Уникальный симулятор мясного бизнеса с элементами стелс-экшена. Управляйте мясной лавкой в мире, населённом зомби. Разрабатывается на Unreal Engine 5 с использованием C++.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-3 mb-6">
+                            <span class="px-3 py-1 rounded-full bg-red-600/20 text-red-400 text-sm">Unreal Engine 5</span>
+                            <span class="px-3 py-1 rounded-full bg-red-600/20 text-red-400 text-sm">C++</span>
+                            <span class="px-3 py-1 rounded-full bg-red-600/20 text-red-400 text-sm">Job Simulator</span>
+                            <span class="px-3 py-1 rounded-full bg-red-600/20 text-red-400 text-sm">Stealth Action</span>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <a href="https://store.steampowered.com/app/4039900/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 rounded-lg font-medium transition">
+                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95 0-5.52-4.48-10-10-10z"/></svg>
+                                <span data-ru="Страница в Steam" data-en="Steam Page">Страница в Steam</span>
+                            </a>
+                            <div class="text-gray-400">
+                                <span class="text-sm" data-ru="Цена:" data-en="Price:">Цена:</span>
+                                <span class="text-white font-semibold" data-ru="по Steam" data-en="Steam pricing">по Steam</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 glass rounded-lg">
+                            <div class="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <div class="font-semibold" data-ru="Статус" data-en="Status">Статус</div>
+                                <div class="text-gray-400 text-sm" data-ru="Прототип готов" data-en="Prototype ready">Прототип готов</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 glass rounded-lg">
+                            <div class="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <div class="font-semibold" data-ru="Релиз" data-en="Release">Релиз</div>
+                                <div class="text-gray-400 text-sm">2026</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 glass rounded-lg">
+                            <div class="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+                            </div>
+                            <div>
+                                <div class="font-semibold" data-ru="Платформа" data-en="Platform">Платформа</div>
+                                <div class="text-gray-400 text-sm">Steam (PC)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Screenshots -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-8 text-center" data-ru="Скриншоты" data-en="Screenshots">Скриншоты</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a href="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4039900/ss_1.jpg" target="_blank" class="screenshot-card glass rounded-xl overflow-hidden">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4039900/ss_d03b4adcee87eee9b7aecf77ee8cb85f2e56ab59.600x338.jpg" alt="ZOMBUTCHER Screenshot 1" class="w-full h-48 object-cover">
+                    </a>
+                    <a href="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4039900/ss_2.jpg" target="_blank" class="screenshot-card glass rounded-xl overflow-hidden">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4039900/ss_f95e05415e50ebfdccc2b93a2aaa3dcf22e61a6e.600x338.jpg" alt="ZOMBUTCHER Screenshot 2" class="w-full h-48 object-cover">
+                    </a>
+                    <a href="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4039900/ss_3.jpg" target="_blank" class="screenshot-card glass rounded-xl overflow-hidden">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4039900/ss_66c05e4df10d7a23b03afc69a0ea6abd959d42bd.600x338.jpg" alt="ZOMBUTCHER Screenshot 3" class="w-full h-48 object-cover">
+                    </a>
+                    <a href="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4039900/ss_4.jpg" target="_blank" class="screenshot-card glass rounded-xl overflow-hidden md:col-span-2 lg:col-span-1">
+                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4039900/ss_7f2f0e5e46d5e8e5e5e5e5e5e5e5e5e5e5e5e5e5.600x338.jpg" alt="ZOMBUTCHER Screenshot 4" class="w-full h-48 object-cover" onerror="this.src='https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4039900/capsule_616x353.jpg'">
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Video Trailer -->
+            <div class="glass rounded-2xl p-6">
+                <h3 class="text-2xl font-bold mb-6 text-center" data-ru="Трейлер" data-en="Trailer">Трейлер</h3>
+                <div class="aspect-video rounded-xl overflow-hidden bg-black/50">
+                    <iframe 
+                        class="w-full h-full"
+                        src="https://store.steampowered.com/widget/4039900/" 
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4" data-ru="Контакты" data-en="Contacts">Контакты</h2>
+                <div class="w-20 h-1 bg-red-600 mx-auto rounded"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <div class="glass rounded-xl p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1" data-ru="Адрес" data-en="Address">Адрес</h4>
+                                <p class="text-gray-400" data-ru="г. Санкт-Петербург, ул. Примерная, д.1 (офис)" data-en="Saint Petersburg, Primernaya st., 1 (office)">г. Санкт-Петербург, ул. Примерная, д.1 (офис)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass rounded-xl p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Email</h4>
+                                <a href="mailto:info@odius.ru" class="text-red-500 hover:text-red-400 transition">info@odius.ru</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass rounded-xl p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1" data-ru="Телефон" data-en="Phone">Телефон</h4>
+                                <a href="tel:+78121234567" class="text-gray-400 hover:text-white transition">+7 (812) 123-45-67</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="glass rounded-xl p-6">
+                        <h4 class="font-semibold mb-4" data-ru="Написать нам" data-en="Contact Us">Написать нам</h4>
+                        <form class="space-y-4">
+                            <input type="email" placeholder="Email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-red-500 transition">
+                            <textarea rows="3" placeholder="Сообщение" data-ru-placeholder="Сообщение" data-en-placeholder="Message" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-red-500 transition resize-none"></textarea>
+                            <button type="submit" class="w-full px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg font-medium transition" data-ru="Отправить" data-en="Send">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Map -->
+                <div class="glass rounded-xl overflow-hidden h-full min-h-[400px]">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.5!2d30.3!3d59.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTnCsDU3JzAwLjAiTiAzMMKwMTgnMDAuMCJF!5e0!3m2!1sru!2sru!4v1234567890"
+                        class="w-full h-full min-h-[400px]"
+                        style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="#home" class="text-2xl font-bold gradient-text">ODIUS</a>
+                    <p class="text-gray-400 mt-4 text-sm" data-ru="Студия разработки видеоигр на Unreal Engine 5" data-en="Game development studio on Unreal Engine 5">
+                        Студия разработки видеоигр на Unreal Engine 5
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4" data-ru="Навигация" data-en="Navigation">Навигация</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#home" class="hover:text-red-500 transition" data-ru="Главная" data-en="Home">Главная</a></li>
+                        <li><a href="#about" class="hover:text-red-500 transition" data-ru="О нас" data-en="About">О нас</a></li>
+                        <li><a href="#project" class="hover:text-red-500 transition" data-ru="Проект" data-en="Project">Проект</a></li>
+                        <li><a href="#contacts" class="hover:text-red-500 transition" data-ru="Контакты" data-en="Contacts">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4" data-ru="Контакты" data-en="Contacts">Контакты</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="mailto:info@odius.ru" class="hover:text-red-500 transition">info@odius.ru</a></li>
+                        <li><a href="tel:+78121234567" class="hover:text-red-500 transition">+7 (812) 123-45-67</a></li>
+                        <li data-ru="Санкт-Петербург" data-en="Saint Petersburg">Санкт-Петербург</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4" data-ru="Реквизиты" data-en="Legal Info">Реквизиты</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>ООО «ODIUS»</li>
+                        <li>ИНН: 1234567890</li>
+                        <li>ОГРН: 1234567890123</li>
+                        <li data-ru="ул. Примерная, д.1" data-en="Primernaya st., 1">ул. Примерная, д.1</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2024 ODIUS. <span data-ru="Все права защищены" data-en="All rights reserved">Все права защищены</span>.</p>
+                <div class="flex items-center gap-4">
+                    <a href="https://store.steampowered.com/app/4039900/" target="_blank" class="text-gray-400 hover:text-white transition">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switcher
+        let currentLang = 'ru';
+        
+        const langRuBtn = document.getElementById('lang-ru');
+        const langEnBtn = document.getElementById('lang-en');
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update buttons
+            if (lang === 'ru') {
+                langRuBtn.classList.add('bg-red-600', 'text-white');
+                langRuBtn.classList.remove('text-gray-400');
+                langEnBtn.classList.remove('bg-red-600', 'text-white');
+                langEnBtn.classList.add('text-gray-400');
+                document.documentElement.lang = 'ru';
+            } else {
+                langEnBtn.classList.add('bg-red-600', 'text-white');
+                langEnBtn.classList.remove('text-gray-400');
+                langRuBtn.classList.remove('bg-red-600', 'text-white');
+                langRuBtn.classList.add('text-gray-400');
+                document.documentElement.lang = 'en';
+            }
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-ru]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) el.textContent = text;
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-ru-placeholder]').forEach(el => {
+                const placeholder = el.getAttribute(`data-${lang}-placeholder`);
+                if (placeholder) el.placeholder = placeholder;
+            });
+        }
+        
+        langRuBtn.addEventListener('click', () => switchLanguage('ru'));
+        langEnBtn.addEventListener('click', () => switchLanguage('en'));
+        
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black/80');
+            } else {
+                header.classList.remove('bg-black/80');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
