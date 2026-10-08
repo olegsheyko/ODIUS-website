@@ -4,79 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ODIUS | Игры и интерактивные продукты</title>
-    <meta name="description" content="ODIUS создаёт видеоигры и интерактивные продукты. MY CAT SCATTERED GAMES выходит 9 октября 2026 года в Steam.">
-    <meta name="theme-color" content="#0c0a09">
+    <meta name="description" content="ODIUS создаёт видеоигры и интерактивные продукты. MY CAT SCATTERED GAMES выходит в Steam в конце октября 2026 года.">
+    <meta name="theme-color" content="#0a0a0c">
+    <meta property="og:title" content="ODIUS: игры с разным характером">
+    <meta property="og:description" content="MY CAT SCATTERED GAMES: Tidy Videogame Supermarket. В Steam в конце октября 2026 года.">
+    <meta property="og:image" content="assets/capsule_616x353.jpg">
     <link rel="icon" href="assets/favicon.ico" sizes="any">
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+    <link rel="stylesheet" href="assets/styles.css?v=11">
+    <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
+    <a href="#main" class="skip-link" data-ru="Перейти к содержанию" data-en="Skip to content">Перейти к содержанию</a>
+
     <div class="site-shell">
         <header class="site-header" id="header">
             <div class="container">
-                <nav class="main-nav" aria-label="Основная навигация">
+                <nav class="main-nav" aria-label="Основная навигация" data-ru-label="Основная навигация" data-en-label="Main navigation">
                     <a href="#home" class="brand" aria-label="ODIUS">
-                        <span class="brand-lockup">
-                            <img src="assets/ODIUS%20Logo%20Alpha.png" alt="" class="brand-logo" width="48" height="48" decoding="async">
-                            <span class="brand-mark">ODIUS</span>
-                        </span>
+                        <img src="assets/odius-logo.png" alt="" class="brand-logo" width="128" height="125" decoding="async">
+                        <span class="brand-mark">ODIUS</span>
                     </a>
 
                     <div class="nav-links">
-                        <a href="#home" class="nav-link" data-ru="Главная" data-en="Home">Главная</a>
                         <a href="#new-game" class="nav-link" data-ru="Новая игра" data-en="New game">Новая игра</a>
-                        <a href="#about" class="nav-link" data-ru="О компании" data-en="About">О компании</a>
-                        <a href="#project" class="nav-link" data-ru="Проект" data-en="Project">Проект</a>
-                        <a href="#contacts" class="nav-link" data-ru="Контакты" data-en="Contacts">Контакты</a>
+                        <a href="#about" class="nav-link" data-ru="Студия" data-en="Studio">Студия</a>
+                        <a href="#project" class="nav-link" data-ru="Игры" data-en="Games">Игры</a>
+                        <a href="#contacts" class="nav-link" data-ru="Контакты" data-en="Contact">Контакты</a>
                     </div>
 
                     <div class="nav-actions">
-                        <div class="lang-switch" aria-label="Language switcher">
-                            <button type="button" id="lang-ru" class="is-active" data-lang-switch="ru">RU</button>
-                            <button type="button" id="lang-en" data-lang-switch="en">EN</button>
+                        <div class="lang-switch" role="group" aria-label="Language">
+                            <button type="button" id="lang-ru" class="is-active" data-lang-switch="ru" aria-pressed="true">RU</button>
+                            <button type="button" id="lang-en" data-lang-switch="en" aria-pressed="false">EN</button>
                         </div>
 
                         <button type="button" class="menu-toggle" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu">
-                            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-                                <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                            </svg>
-                            <span class="visually-hidden" data-ru="Открыть меню" data-en="Open menu">Открыть меню</span>
+                            <span class="menu-toggle-bars" aria-hidden="true"></span>
+                            <span class="visually-hidden" data-ru="Меню" data-en="Menu">Меню</span>
                         </button>
                     </div>
                 </nav>
+            </div>
 
-                <div class="mobile-panel" id="mobile-menu">
-                    <div class="mobile-links">
-                        <a href="#home" class="nav-link" data-ru="Главная" data-en="Home">Главная</a>
-                        <a href="#new-game" class="nav-link" data-ru="Новая игра" data-en="New game">Новая игра</a>
-                        <a href="#about" class="nav-link" data-ru="О компании" data-en="About">О компании</a>
-                        <a href="#project" class="nav-link" data-ru="Проект" data-en="Project">Проект</a>
-                        <a href="#contacts" class="nav-link" data-ru="Контакты" data-en="Contacts">Контакты</a>
-                    </div>
+            <div class="mobile-panel" id="mobile-menu">
+                <div class="container mobile-links">
+                    <a href="#new-game" class="mobile-link" data-ru="Новая игра" data-en="New game">Новая игра</a>
+                    <a href="#about" class="mobile-link" data-ru="Студия" data-en="Studio">Студия</a>
+                    <a href="#project" class="mobile-link" data-ru="Игры" data-en="Games">Игры</a>
+                    <a href="#contacts" class="mobile-link" data-ru="Контакты" data-en="Contact">Контакты</a>
                 </div>
             </div>
         </header>
 
-        <main>
-            <section class="section hero" id="home">
+        <main id="main">
+            <section class="hero game-cat" id="home" aria-labelledby="new-game">
+                <div class="hero-ambient" aria-hidden="true">
+                    <img src="assets/capsule_616x353.jpg" alt="" width="616" height="353" decoding="async">
+                </div>
+                <div class="hero-paws" aria-hidden="true">
+                    <svg width="0" height="0" class="visually-hidden"><symbol id="paw" viewBox="0 0 64 64"><path d="M32 30c-8.3 0-16 8.6-16 16 0 6.2 5.3 8.6 9.6 7.3 2.6-.8 4.2-2 6.4-2s3.8 1.2 6.4 2c4.3 1.3 9.6-1.1 9.6-7.3 0-7.4-7.7-16-16-16Z"/><ellipse cx="15" cy="27" rx="5.2" ry="7" transform="rotate(-22 15 27)"/><ellipse cx="25.5" cy="15.5" rx="5.6" ry="7.6" transform="rotate(-8 25.5 15.5)"/><ellipse cx="38.5" cy="15.5" rx="5.6" ry="7.6" transform="rotate(8 38.5 15.5)"/><ellipse cx="49" cy="27" rx="5.2" ry="7" transform="rotate(22 49 27)"/></symbol></svg>
+                    <svg class="paw" style="--x: 5%; --y: 16%; --r: -20deg; --s: 52px"><use href="#paw"/></svg>
+                    <svg class="paw" style="--x: 43%; --y: 9%; --r: 15deg; --s: 38px"><use href="#paw"/></svg>
+                    <svg class="paw" style="--x: 91%; --y: 10%; --r: 30deg; --s: 46px"><use href="#paw"/></svg>
+                    <svg class="paw" style="--x: 56%; --y: 80%; --r: -35deg; --s: 60px"><use href="#paw"/></svg>
+                    <svg class="paw" style="--x: 3%; --y: 74%; --r: 12deg; --s: 42px"><use href="#paw"/></svg>
+                    <svg class="paw" style="--x: 95%; --y: 64%; --r: -12deg; --s: 40px"><use href="#paw"/></svg>
+                    <svg class="paw" style="--x: 33%; --y: 46%; --r: 28deg; --s: 30px"><use href="#paw"/></svg>
+                    <svg class="paw" style="--x: 74%; --y: 40%; --r: -8deg; --s: 34px"><use href="#paw"/></svg>
+                    <svg class="paw paw--trail" style="--x: 8.0%; --y: 94.0%; --r: 68deg; --s: 34px; --i: 0"><use href="#paw"/></svg>
+                    <svg class="paw paw--trail" style="--x: 14.5%; --y: 86.8%; --r: 68deg; --s: 34px; --i: 1"><use href="#paw"/></svg>
+                    <svg class="paw paw--trail" style="--x: 21.0%; --y: 87.6%; --r: 68deg; --s: 34px; --i: 2"><use href="#paw"/></svg>
+                    <svg class="paw paw--trail" style="--x: 27.5%; --y: 80.4%; --r: 68deg; --s: 34px; --i: 3"><use href="#paw"/></svg>
+                    <svg class="paw paw--trail" style="--x: 34.0%; --y: 81.2%; --r: 68deg; --s: 34px; --i: 4"><use href="#paw"/></svg>
+                    <svg class="paw paw--trail" style="--x: 40.5%; --y: 74.0%; --r: 68deg; --s: 34px; --i: 5"><use href="#paw"/></svg>
+                    <svg class="paw paw--trail" style="--x: 47.0%; --y: 74.8%; --r: 68deg; --s: 34px; --i: 6"><use href="#paw"/></svg>
+                    <svg class="paw paw--trail" style="--x: 53.5%; --y: 67.6%; --r: 68deg; --s: 34px; --i: 7"><use href="#paw"/></svg>
+                </div>
+                <div class="hero-orbs" aria-hidden="true">
+                    <span class="orb orb--cyan"></span>
+                    <span class="orb orb--violet"></span>
+                    <span class="orb orb--pink"></span>
+                </div>
+
                 <div class="container hero-grid">
                     <div class="hero-copy">
-                        <h1 id="new-game">
-                            <span class="text-gradient hero-line--accent">MY CAT</span>
-                            <span class="hero-line--second">SCATTERED GAMES</span>
+                        <h1 id="new-game" class="hero-title">
+                            <span class="hero-line"><span class="hero-title-accent">My Cat</span></span>
+                            <span class="hero-line"><span>Scattered Games</span></span>
                         </h1>
-                        <p class="hero-game-title">Tidy Videogame Supermarket</p>
+                        <p class="hero-subtitle">Tidy Videogame Supermarket</p>
+
                         <p class="lead" data-ru="Кот устроил погром в магазине видеоигр и застрял в автомате. Наведите порядок и вызволите виновника." data-en="Your cat wrecked a videogame shop and got stuck in the claw machine. Tidy up, then get him out.">
                             Кот устроил погром в магазине видеоигр и застрял в автомате. Наведите порядок и вызволите виновника.
                         </p>
-                        <div class="hero-launch">
-                            <span class="release-date" data-ru="Выходит в Steam 9 октября 2026 года" data-en="Coming to Steam October 9, 2026">Выходит в Steam 9 октября 2026 года</span>
-                            <a href="https://store.steampowered.com/app/4949400/MY_CAT_SCATTERED_GAMES_Tidy_Videogame_Supermarket/" class="button button--primary" target="_blank" rel="noopener noreferrer" data-ru="Открыть в Steam" data-en="View on Steam">Открыть в Steam</a>
+
+                        <div class="hero-actions">
+                            <a href="https://store.steampowered.com/app/4949400/MY_CAT_SCATTERED_GAMES_Tidy_Videogame_Supermarket/" class="button button--primary" target="_blank" rel="noopener noreferrer">
+                                <svg class="button-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-9.96 9.1l5.36 2.22a2.8 2.8 0 0 1 1.62-.5l2.4-3.47v-.05a3.77 3.77 0 1 1 3.77 3.77h-.09l-3.42 2.44.01.13a2.83 2.83 0 0 1-5.6.57L2.3 14.6A10 10 0 1 0 12 2Zm-4.6 15.17-1.23-.51a2.13 2.13 0 1 0 1.17-2.9l1.27.53a1.57 1.57 0 1 1-1.2 2.88Zm9.2-7.85a2.51 2.51 0 1 0-2.51 2.51 2.52 2.52 0 0 0 2.51-2.51Zm-4.39 0a1.89 1.89 0 1 1 1.88 1.89 1.89 1.89 0 0 1-1.88-1.89Z"/></svg>
+                                <span data-ru="Открыть в Steam" data-en="View on Steam">Открыть в Steam</span>
+                            </a>
+                            <div class="release">
+                                <span class="release-label" data-ru="Релиз" data-en="Release">Релиз</span>
+                                <span class="release-value" data-ru="Конец октября 2026" data-en="Late October 2026">Конец октября 2026</span>
+                            </div>
                         </div>
                     </div>
 
-                    <figure class="hero-art hero-art--scene" aria-hidden="true">
+                    <figure class="hero-art" data-parallax>
                         <img src="assets/capsule_616x353.jpg"
-                             alt=""
+                             alt="Ключевой арт MY CAT SCATTERED GAMES: кот разбрасывает диски с видеоиграми"
                              width="616"
                              height="353"
                              fetchpriority="high"
@@ -84,68 +123,109 @@
                     </figure>
                 </div>
             </section>
-            <section class="section about-section" id="about">
-                <div class="container about-layout">
-                    <h2 class="about-title" data-ru="Игры с разным характером." data-en="Games with distinct personalities.">Игры с разным характером.</h2>
-                    <div class="about-copy">
-                        <p data-ru="ODIUS создаёт видеоигры, интерактивные приложения и программное обеспечение: от проектирования до выпуска и технической поддержки." data-en="ODIUS creates video games, interactive applications, and software, from design through release and ongoing support.">
+
+            <section class="section about-section" id="about" aria-labelledby="about-title">
+                <div class="container">
+                    <div class="about-head reveal">
+                        <p class="eyebrow" data-ru="Студия" data-en="Studio">Студия</p>
+                        <h2 class="section-title" id="about-title" data-ru="Игры с разным характером." data-en="Games with distinct personalities.">Игры с разным характером.</h2>
+                        <p class="section-lead" data-ru="ODIUS создаёт видеоигры, интерактивные приложения и программное обеспечение: от проектирования до выпуска и технической поддержки." data-en="ODIUS creates video games, interactive applications, and software, from design through release and ongoing support.">
                             ODIUS создаёт видеоигры, интерактивные приложения и программное обеспечение: от проектирования до выпуска и технической поддержки.
                         </p>
                     </div>
+
+                    <ul class="capabilities reveal reveal--stagger" role="list">
+                        <li class="capability" style="--i: 0">
+                            <svg class="capability-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 9v4M5 11h4M15 10h.01M17.5 12.5h.01M6.5 6h11A4.5 4.5 0 0 1 22 10.5v3a4.5 4.5 0 0 1-8.1 2.7l-.4-.7h-3l-.4.7A4.5 4.5 0 0 1 2 13.5v-3A4.5 4.5 0 0 1 6.5 6Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <h3 data-ru="Видеоигры" data-en="Video games">Видеоигры</h3>
+                            <p data-ru="Собственные проекты для ПК: от прототипа до релиза в Steam." data-en="Original PC titles, from prototype to Steam release.">Собственные проекты для ПК: от прототипа до релиза в Steam.</p>
+                        </li>
+                        <li class="capability" style="--i: 1">
+                            <svg class="capability-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4M9 9.5l2 1.5-2 1.5M13 13h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <h3 data-ru="Интерактивные приложения" data-en="Interactive applications">Интерактивные приложения</h3>
+                            <p data-ru="Продукты, в которых важны отклик, ощущение и вовлечённость." data-en="Products where responsiveness, feel, and engagement matter.">Продукты, в которых важны отклик, ощущение и вовлечённость.</p>
+                        </li>
+                        <li class="capability" style="--i: 2">
+                            <svg class="capability-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <h3 data-ru="Программное обеспечение" data-en="Software">Программное обеспечение</h3>
+                            <p data-ru="Разработка под задачи проекта и техническая поддержка после выпуска." data-en="Development tailored to each project, with support after launch.">Разработка под задачи проекта и техническая поддержка после выпуска.</p>
+                        </li>
+                    </ul>
+
+                    <ol class="pipeline reveal reveal--stagger" aria-label="Цикл разработки" data-ru-label="Цикл разработки" data-en-label="Development cycle">
+                        <li><span class="pipeline-step">01</span><span data-ru="Проектирование" data-en="Design">Проектирование</span></li>
+                        <li><span class="pipeline-step">02</span><span data-ru="Разработка" data-en="Development">Разработка</span></li>
+                        <li><span class="pipeline-step">03</span><span data-ru="Выпуск" data-en="Release">Выпуск</span></li>
+                        <li><span class="pipeline-step">04</span><span data-ru="Поддержка" data-en="Support">Поддержка</span></li>
+                    </ol>
                 </div>
             </section>
-            <section class="section project-section" id="project">
+
+            <section class="section project-section game-zombutcher" id="project" aria-labelledby="project-title">
+                <div class="project-ambient" aria-hidden="true"></div>
                 <div class="container">
                     <div class="project-grid">
-                        <div class="project-copy">
-                            <h2 class="project-title">Zombutcher</h2>
-                            <p class="project-description" data-ru="Вы играете за зомби-мясника, который ведёт мясную лавку среди людей. Симулятор магазина здесь встречается со стелс-экшеном." data-en="Play as a zombie butcher running a shop among humans. A shop simulator meets stealth action.">
-                                Вы играете за зомби-мясника, который ведёт мясную лавку среди людей. Симулятор магазина здесь встречается со стелс-экшеном.
+                        <div class="project-copy reveal">
+                            <h2 class="project-title" id="project-title">Zombutcher</h2>
+                            <p class="project-tagline" data-ru="Симулятор магазина встречается со стелс-экшеном." data-en="A shop simulator meets stealth action.">Симулятор магазина встречается со стелс-экшеном.</p>
+                            <p class="project-description" data-ru="Вы играете за зомби-мясника, который ведёт мясную лавку среди людей. Держите прилавок полным, а секрет при себе." data-en="Play as a zombie butcher running a shop among humans. Keep the counter stocked and the secret hidden.">
+                                Вы играете за зомби-мясника, который ведёт мясную лавку среди людей. Держите прилавок полным, а секрет при себе.
                             </p>
-                            <a href="https://store.steampowered.com/app/4039900/" class="text-link" target="_blank" rel="noopener noreferrer" data-ru="Zombutcher в Steam" data-en="Zombutcher on Steam">Zombutcher в Steam</a>
+                            <a href="https://store.steampowered.com/app/4039900/" class="button button--primary" target="_blank" rel="noopener noreferrer" aria-label="Zombutcher в Steam" data-ru-label="Zombutcher в Steam" data-en-label="Zombutcher on Steam">
+                                <svg class="button-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-9.96 9.1l5.36 2.22a2.8 2.8 0 0 1 1.62-.5l2.4-3.47v-.05a3.77 3.77 0 1 1 3.77 3.77h-.09l-3.42 2.44.01.13a2.83 2.83 0 0 1-5.6.57L2.3 14.6A10 10 0 1 0 12 2Zm-4.6 15.17-1.23-.51a2.13 2.13 0 1 0 1.17-2.9l1.27.53a1.57 1.57 0 1 1-1.2 2.88Zm9.2-7.85a2.51 2.51 0 1 0-2.51 2.51 2.52 2.52 0 0 0 2.51-2.51Zm-4.39 0a1.89 1.89 0 1 1 1.88 1.89 1.89 1.89 0 0 1-1.88-1.89Z"/></svg>
+                                <span data-ru="Открыть в Steam" data-en="View on Steam">Открыть в Steam</span>
+                            </a>
                         </div>
 
-                        <figure class="project-poster">
-                            <img src="assets/hero_capsule_2x.jpg" alt="Обновлённый постер игры Zombutcher" width="748" height="896" loading="lazy" decoding="async">
+                        <figure class="project-poster reveal reveal--clip">
+                            <picture>
+                                <source srcset="assets/poster.webp" type="image/webp">
+                                <img src="assets/poster.png" alt="Ключевой арт Zombutcher: мясник, наполовину зомби, держит мозг и стейк" width="1232" height="706" loading="lazy" decoding="async">
+                            </picture>
                         </figure>
                     </div>
 
-                    <div class="media-grid" aria-label="Скриншоты проекта">
-                        <a href="assets/screenshot_1.jpg" class="media-card" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/screenshot_1.jpg" alt="Zombutcher screenshot 1" width="1920" height="1056" loading="lazy" decoding="async">
+                    <div class="media-grid reveal reveal--stagger" role="list" aria-label="Скриншоты Zombutcher" data-ru-label="Скриншоты Zombutcher" data-en-label="Zombutcher screenshots">
+                        <a href="assets/screenshot_1.jpg" class="media-card" style="--i: 0" role="listitem" data-lightbox target="_blank" rel="noopener noreferrer">
+                            <img src="assets/screenshot_1.webp" alt="Zombutcher: подсобка мясной лавки" width="1600" height="880" loading="lazy" decoding="async">
                         </a>
-                        <a href="assets/screenshot_2.jpg" class="media-card" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/screenshot_2.jpg" alt="Zombutcher screenshot 2" width="1920" height="1080" loading="lazy" decoding="async">
+                        <a href="assets/screenshot_2.jpg" class="media-card" style="--i: 1" role="listitem" data-lightbox target="_blank" rel="noopener noreferrer">
+                            <img src="assets/screenshot_2.webp" alt="Zombutcher: разделочный стол" width="1600" height="900" loading="lazy" decoding="async">
                         </a>
-                        <a href="assets/screenshot_3.png" class="media-card" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/screenshot_3.png" alt="Zombutcher screenshot 3" width="2557" height="1380" loading="lazy" decoding="async">
+                        <a href="assets/screenshot_3.png" class="media-card" style="--i: 2" role="listitem" data-lightbox target="_blank" rel="noopener noreferrer">
+                            <img src="assets/screenshot_3.webp" alt="Zombutcher: торговый зал" width="1600" height="864" loading="lazy" decoding="async">
                         </a>
-                        <a href="assets/screenshot_4.png" class="media-card" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/screenshot_4.png" alt="Zombutcher screenshot 4" width="2560" height="1440" loading="lazy" decoding="async">
+                        <a href="assets/screenshot_4.png" class="media-card" style="--i: 3" role="listitem" data-lightbox target="_blank" rel="noopener noreferrer">
+                            <img src="assets/screenshot_4.webp" alt="Zombutcher: ночная улица у супермаркета" width="1600" height="900" loading="lazy" decoding="async">
                         </a>
                     </div>
                 </div>
             </section>
-            <section class="section section--pricing" id="pricing">
+
+            <section class="section contact-section" id="contacts" aria-labelledby="contacts-title">
                 <div class="container">
-                    <div class="pricing-panel">
-                        <p class="eyebrow" data-ru="РАЗРАБОТКА" data-en="DEVELOPMENT">РАЗРАБОТКА</p>
-                        <h2 data-ru="Объём и стоимость разработки зависят от задач проекта." data-en="Scope and cost depend on the needs of each project.">Объём и стоимость разработки зависят от задач проекта.</h2>
-                        <p data-ru="Программное обеспечение, видеоигры и интерактивные приложения." data-en="Software, video games, and interactive applications.">Программное обеспечение, видеоигры и интерактивные приложения.</p>
-                    </div>
-                </div>
-            </section>
-            <section class="section contact-section" id="contacts">
-                <div class="container">
-                    <div class="section-header">
-                        <p class="eyebrow" data-ru="КОНТАКТЫ" data-en="CONTACT">КОНТАКТЫ</p>
-                        <h2 class="section-title" data-ru="По вопросам проектов и сотрудничества" data-en="For projects and partnerships">По вопросам проектов и сотрудничества</h2>
-                    </div>
-                    <div class="contact-grid">
-                        <a href="mailto:support@odius.games" class="contact-email">support@odius.games</a>
-                        <p class="contact-note" data-ru="Команда разработки ODIUS базируется в Санкт-Петербурге." data-en="Our development team is based in Saint Petersburg.">
-                            Команда разработки ODIUS базируется в Санкт-Петербурге.
-                        </p>
+                    <div class="contact-card reveal">
+                        <div class="contact-main">
+                            <p class="eyebrow" data-ru="Сотрудничество" data-en="Partnerships">Сотрудничество</p>
+                            <h2 class="section-title" id="contacts-title" data-ru="Обсудим ваш проект." data-en="Let’s talk about your project.">Обсудим ваш проект.</h2>
+                            <p class="section-lead" data-ru="Объём и стоимость разработки зависят от задач проекта. Напишите нам, и мы предложим формат работы." data-en="Scope and cost depend on the needs of each project. Write to us and we’ll reply with a way to work together.">
+                                Объём и стоимость разработки зависят от задач проекта. Напишите нам, и мы предложим формат работы.
+                            </p>
+                        </div>
+
+                        <div class="contact-side">
+                            <a href="mailto:support@odius.games" class="contact-email">support@odius.games</a>
+                            <dl class="contact-meta">
+                                <div>
+                                    <dt data-ru="Команда" data-en="Team">Команда</dt>
+                                    <dd data-ru="Санкт-Петербург" data-en="Saint Petersburg">Санкт-Петербург</dd>
+                                </div>
+                                <div>
+                                    <dt data-ru="Направления" data-en="Focus">Направления</dt>
+                                    <dd data-ru="Игры, приложения, ПО" data-en="Games, apps, software">Игры, приложения, ПО</dd>
+                                </div>
+                            </dl>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -156,28 +236,26 @@
                 <div class="footer-grid">
                     <div class="footer-brand">
                         <a href="#home" class="brand" aria-label="ODIUS">
-                            <span class="brand-lockup">
-                                <img src="assets/ODIUS%20Logo%20Alpha.png" alt="" class="brand-logo" width="48" height="48" loading="lazy" decoding="async">
-                                <span class="brand-mark">ODIUS</span>
-                            </span>
+                            <img src="assets/odius-logo.png" alt="" class="brand-logo" width="128" height="125" loading="lazy" decoding="async">
+                            <span class="brand-mark">ODIUS</span>
                         </a>
+                        <p data-ru="Видеоигры и интерактивные продукты." data-en="Video games and interactive products.">Видеоигры и интерактивные продукты.</p>
                     </div>
 
                     <div>
                         <h2 class="footer-title" data-ru="Навигация" data-en="Navigation">Навигация</h2>
                         <ul class="footer-list">
-                            <li><a href="#home" data-ru="Главная" data-en="Home">Главная</a></li>
                             <li><a href="#new-game" data-ru="Новая игра" data-en="New game">Новая игра</a></li>
-                            <li><a href="#about" data-ru="О компании" data-en="About">О компании</a></li>
-                            <li><a href="#project" data-ru="Проект" data-en="Project">Проект</a></li>
-                            <li><a href="#contacts" data-ru="Контакты" data-en="Contacts">Контакты</a></li>
+                            <li><a href="#about" data-ru="Студия" data-en="Studio">Студия</a></li>
+                            <li><a href="#project" data-ru="Игры" data-en="Games">Игры</a></li>
+                            <li><a href="#contacts" data-ru="Контакты" data-en="Contact">Контакты</a></li>
                             <li><a href="privacy-policy.html" data-ru="Политика обработки персональных данных" data-en="Privacy Policy">Политика обработки персональных данных</a></li>
                         </ul>
                     </div>
 
                     <div>
                         <h2 class="footer-title" data-ru="Реквизиты" data-en="Legal details">Реквизиты</h2>
-                        <ul class="footer-list">
+                        <ul class="footer-list footer-list--legal">
                             <li>ООО "Одиус"</li>
                             <li data-ru="Общество с ограниченной ответственностью «Одиус»" data-en="Limited liability company Odius">Общество с ограниченной ответственностью «Одиус»</li>
                             <li data-ru="ОГРН: 1267700019421 от 26.01.2026" data-en="PSRN: 1267700019421 dated 26.01.2026">ОГРН: 1267700019421 от 26.01.2026</li>
@@ -197,6 +275,19 @@
         </footer>
     </div>
 
-    <script src="assets/site.js" defer></script>
+    <dialog class="lightbox" id="lightbox" aria-label="Скриншот" data-ru-label="Скриншот" data-en-label="Screenshot">
+        <img src="" alt="" class="lightbox-image">
+        <button type="button" class="lightbox-btn lightbox-close" data-lightbox-close aria-label="Закрыть" data-ru-label="Закрыть" data-en-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button type="button" class="lightbox-btn lightbox-prev" data-lightbox-step="-1" aria-label="Предыдущий" data-ru-label="Предыдущий" data-en-label="Previous">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="lightbox-btn lightbox-next" data-lightbox-step="1" aria-label="Следующий" data-ru-label="Следующий" data-en-label="Next">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+    </dialog>
+
+    <script src="assets/site.js?v=11" defer></script>
 </body>
 </html>
